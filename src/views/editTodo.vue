@@ -1,26 +1,25 @@
-// 追加画面
 <template>
-  <div class="about">
+  <div class="editTodo">
     <h1>TODO 追加画面</h1>
     <div>
-      日時：<input type="date" max="9999-12-31" v-model="todo.date">
+      日時：<input type="date" max="9999-12-31" >
     </div>
 
     <div>
-      タイトル：<input type="text" v-model="todo.title">
+      タイトル：<input type="text" >
     </div>
 
     <div>
-      内容：<textarea rows="5" cols="100" v-model="todo.contents"></textarea>
+      内容：<textarea rows="5" cols="100" ></textarea>
     </div>
 
     <div>
-      期日：<input type="date" max="9999-12-31" v-model="todo.deadline">
+      期日：<input type="date" max="9999-12-31">
     </div>
 
     <div>
       進歩：
-      <select name="num" v-model="todo.progress">
+      <select name="num" >
         <option value="">-</option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -127,30 +126,10 @@
     </div>
 
     <div>
-      メモ：<textarea rows="5" cols="100" v-model="todo.memo"></textarea>
+      メモ：<textarea rows="5" cols="100" ></textarea>
     </div>
-    <button @click="submit()">送信</button>
+    <button >更新</button>
 
   </div>
 </template>
-
-<script>
-import { mapActions } from 'vuex'
-
-export default {
-  data() {
-    return{
-      todo:{}
-    }
-  },
-  methods:{
-    submit(){
-      this.addTodo(this.todo)
-      this.$router.push({name:"todoList"})
-    },
-    ...mapActions(["addTodo"])
-
-  }
-}
-</script>
 

@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">TODO一覧画面</router-link> |
-      <router-link to="/about">TODO追加画面</router-link>
+      <router-link to="/">HOME</router-link>|
+      <router-link to="/todoList">TODO一覧画面</router-link> |
+      <router-link to="/about">TODO追加画面</router-link>|
+      <router-link to="/editTodo">TODO編集画面</router-link>
+      
     </div>
     <router-view/>
   </div>
