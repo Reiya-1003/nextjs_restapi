@@ -1,26 +1,31 @@
 // 編集画面
 <template>
+<<<<<<< HEAD
   <div class="editTodo">
     <h1>TODO 編集画面</h1>
+=======
+  <div class="editTodo" >
+    <h1>TODO 追加画面</h1>
+>>>>>>> todo
     <div>
-      日時：<input type="date" max="9999-12-31" >
+      日時：<input type="date" max="9999-12-31" v-model="todo.date">
     </div>
 
     <div>
-      タイトル：<input type="text" >
+      タイトル：<input type="text" v-model="todo.title"> 
     </div>
 
     <div>
-      内容：<textarea rows="5" cols="100" ></textarea>
+      内容：<textarea rows="5" cols="100" v-model="todo.contents"></textarea>
     </div>
 
     <div>
-      期日：<input type="date" max="9999-12-31">
+      期日：<input type="date" max="9999-12-31" v-model="todo.deadline">
     </div>
 
     <div>
       進歩：
-      <select name="num" >
+      <select name="num" v-model="todo.progress">
         <option value="">-</option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -127,10 +132,43 @@
     </div>
 
     <div>
-      メモ：<textarea rows="5" cols="100" ></textarea>
+      メモ：<textarea rows="5" cols="100" v-model="todo.memo"></textarea>
     </div>
-    <button >更新</button>
+    <button @click="submit">更新</button>
 
   </div>
 </template>
+<script>
+
+
+export default {
+  data() {
+    return{
+      todo:{ 
+             
+             }
+    }
+  },
+  created(){
+
+const todo = this.$store.getters.getAddressById(
+    this.$route.params.todoList
+);
+if(todo){
+    this.todo = todo;
+}
+
+ },
+  computed:{
+    Title(){
+      return this.$state.store.todos
+    }
+  },
+  methods:{
+  
+
+  }
+}
+</script>
+
 

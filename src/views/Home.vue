@@ -4,7 +4,9 @@
       <div id ="home">
         <h1>ログイン画面</h1>
         <div>
-          <button>ログインはこちら</button>
+          <button color='info' @click="login">Googleアカウントでログイン</button>
+          <p>{{userName}}</p>
+          
         </div>
 
     </div>
@@ -12,11 +14,15 @@
 
 <script>
 // @ is an alias to /src
-
+import { mapActions } from 'vuex'
 
 
 export default {
   name: 'Home',
+
+     methods:{
+     ...mapActions(['login','userName'])
+   }
 
 }
 </script>
