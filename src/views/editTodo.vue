@@ -1,6 +1,7 @@
+// 編集画面
 <template>
   <div class="editTodo">
-    <h1>TODO 追加画面</h1>
+    <h1>TODO 編集画面</h1>
     <div>
       日時：<input type="date" max="9999-12-31" >
     </div>
