@@ -33,3 +33,41 @@
   }
 }
 </style>
+
+<script>
+
+import { mapActions } from 'vuex'
+import firebase from "firebase";
+
+
+export default {
+ name: 'App',
+ components: {
+   
+   
+ },
+ created () {
+   firebase.auth().onAuthStateChanged(user => {
+     if (user) {
+       this.setLoginUser(user)
+       this.fetchAddresses()
+       if(this.$router.currentRoute.name === 'home')this.$router.push({name:'addresses'})
+     } else {
+       this.deleteLoginUser()
+       this.$router.push({name:'home'})
+     }
+   })
+ },
+ data () {
+   return {
+     //
+   }
+ },
+  methods:{
+   ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser','fetchAddresses'])
+ }
+    
+     
+  }
+
+</script>
