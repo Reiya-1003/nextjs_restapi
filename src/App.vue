@@ -6,6 +6,10 @@
       <router-link to="/about">TODO追加画面</router-link>|
       <router-link to="/editTodo">TODO編集画面</router-link>
       
+    <div>
+      <button @click="logout">ログアウト</button>
+    </div>
+  {{userName}}
     </div>
     <router-view/>
   </div>
@@ -36,25 +40,18 @@
 
 <script>
 
-import { mapActions } from 'vuex'
+import { mapActions,mapGetters } from 'vuex'
 import firebase from "firebase";
 
 
 export default {
  name: 'App',
- components: {
-   
-   
- },
  created () {
    firebase.auth().onAuthStateChanged(user => {
      if (user) {
        this.setLoginUser(user)
-      //  this.fetchAddresses()
-       if(this.$router.currentRoute.name === 'home')this.$router.push({name:'addresses'})
      } else {
        this.deleteLoginUser()
-       this.$router.push({name:'home'})
      }
    })
  },
@@ -64,7 +61,10 @@ export default {
    }
  },
   methods:{
-   ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser','fetchAddresses'])
+   ...mapActions([ 'setLoginUser', 'logout', 'deleteLoginUser'])
+ },
+ computed:{
+   ...mapGetters(['userName'])
  }
     
      

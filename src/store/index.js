@@ -43,6 +43,9 @@ export default new Vuex.Store({
     },
     logout() {
       firebase.auth().signOut();
+      console.log("aaa");
+
+
     },
     // addTodo({commit},todo){
     //   commit("addTodo",todo)
