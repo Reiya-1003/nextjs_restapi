@@ -1,12 +1,7 @@
 // 編集画面
 <template>
-<<<<<<< HEAD
   <div class="editTodo">
     <h1>TODO 編集画面</h1>
-=======
-  <div class="editTodo" >
-    <h1>TODO 追加画面</h1>
->>>>>>> todo
     <div>
       日時：<input type="date" max="9999-12-31" v-model="todo.date">
     </div>

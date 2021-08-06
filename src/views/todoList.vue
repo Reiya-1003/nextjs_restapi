@@ -30,13 +30,7 @@ import { mapActions } from 'vuex'
 export default {
     data() {
     return{
-      todo:{ 
-             date:'',
-             title:'',
-             contents:'', 
-             deadline:'',
-             progress:'', 
-             memo:''}
+      todo:{}
     }
   },
     methods:{

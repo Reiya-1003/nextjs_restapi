@@ -5,7 +5,7 @@
         <h1>ログイン画面</h1>
         <div>
           <button color='info' @click="login">Googleアカウントでログイン</button>
-          <p>{{userName}}</p>
+          <!-- <p>{{userName}}</p> -->
           
         </div>
 
