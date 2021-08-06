@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-<<<<<<< HEAD
 import firebase from 'firebase'
-=======
-import firebase from "firebase";
->>>>>>> todo
 
 Vue.use(Vuex)
 
@@ -22,29 +18,20 @@ export default new Vuex.Store({
       state.todos.push(todo);
     },
 
-    deleteAction(state,index){
-      state.todos.splice(index,1)
+    deleteAction(state, id){
+      const i = state.todos.findIndex(td => td.id === id)
+      state.todos.splice(i, 1)
     },
-<<<<<<< HEAD
     setLoginUser(state,user){
       state.login_user = user
     },
     deleteLoginUser(state){
       state.login_user = null
-    }
-=======
-    editAction(state){
-      state.todos.title = 'テスト'
-      
     },
-    setLoginUser(state, user) {
-      state.login_user = user;
+    updateTd(state, { id, todo }) {
+      const index = state.todos.findIndex(td => td.id === id);
+      state.todos[index] = todo;
     },
-    deleteLoginUser(state) {
-      state.login_user = null;
-    },
-
->>>>>>> todo
   },
 
   actions: {
@@ -71,43 +58,23 @@ export default new Vuex.Store({
           });
       }
     },
-    editAction({commit},index){
-      commit("editAction",index)
-    },
-    deleteAction({commit},index){
-      commit("deleteAction",index)
-    },
-<<<<<<< HEAD
-    setLoginUser({commit},user){
-      commit('setLoginUser',user)
+    deleteAction({commit}, index){
+      commit("deleteAction", index)
     },
     login(){
       const google_auth_provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithRedirect(google_auth_provider)
     },
-    logout(){
-      firebase.auth().signOut()
+
+    updateTd({ commit }, { id, todo }) {      
+      commit('updateTd', { id, todo })          
     },
-    deleteLoginUser({commit}){
-      commit('deleteLoginUser')
-    }
-=======
-   
-  
->>>>>>> todo
-  
-  login(){
-    const google_auth_provider = new firebase.auth.GoogleAuthProvider()
-    firebase.auth().signInWithRedirect(google_auth_provider)
-  },
- 
-   
-  
+
   },
 
   getters: {
     userName: (state) => (state.login_user ? state.login_user.displayName : ""),
     uid: (state) => (state.login_user ? state.login_user.uid : null),
-    getAddressById: state => id => state.todos.find(todo => todo.id === id),
+    getTodoById: state => id => state.todos.find(todo => todo.id === id),
   }
 })

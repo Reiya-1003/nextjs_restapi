@@ -2,9 +2,6 @@
 <template>
   <div class="about">
     <h1>TODO 追加画面</h1>
-    <div>
-      日時：<input type="date" max="9999-12-31" v-model="todo.date">
-    </div>
 
     <div>
       タイトル：<input type="text" v-model="todo.title">
@@ -140,13 +137,32 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return{
-      todo:{}
+      todo:{
+        date: new Date(),
+        title: '',
+        contents: '',
+        deadline: '',
+        progress: '',
+        memo: '',
+      }
     }
   },
   methods:{
     submit(){
-      this.addTodo(this.todo)
-      this.$router.push({name:"todoList"})
+      let check = '';
+      console.log(this.todo.contents);
+      if (this.todo.title === '') { check += ' タイトル ' }
+      if (this.todo.contents === '') { check += ' 内容 ' }
+      if (this.todo.deadline === '') { check += ' 期日 ' }
+      if (this.todo.progress === '') { check += ' 進捗 ' }
+      if (this.todo.memo === '') { check += ' メモ ' }
+      if (check === '') {
+        this.addTodo(this.todo)
+        this.$router.push({name:"todoList"})
+      } else {
+        alert ( check + "が足りません" )
+      }
+
     },
     ...mapActions(["addTodo"])
 

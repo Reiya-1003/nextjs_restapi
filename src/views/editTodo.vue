@@ -1,18 +1,13 @@
 // 編集画面
 <template>
-<<<<<<< HEAD
   <div class="editTodo">
     <h1>TODO 編集画面</h1>
-=======
-  <div class="editTodo" >
-    <h1>TODO 追加画面</h1>
->>>>>>> todo
     <div>
       日時：<input type="date" max="9999-12-31" v-model="todo.date">
     </div>
 
     <div>
-      タイトル：<input type="text" v-model="todo.title"> 
+      タイトル：{{todo.title}}
     </div>
 
     <div>
@@ -134,41 +129,39 @@
     <div>
       メモ：<textarea rows="5" cols="100" v-model="todo.memo"></textarea>
     </div>
-    <button @click="submit">更新</button>
+    <button @click="update">更新</button>
 
   </div>
 </template>
 <script>
-
+import {mapGetters, mapActions} from "vuex"
 
 export default {
   data() {
     return{
-      todo:{ 
-             
-             }
+      todo:{}
     }
   },
-  created(){
 
-const todo = this.$store.getters.getAddressById(
-    this.$route.params.todoList
-);
-if(todo){
-    this.todo = todo;
-}
-
- },
-  computed:{
-    Title(){
-      return this.$state.store.todos
-    }
+  created (){
+      if (this.$route.params.id) {
+        this.todo = this.getTodoById (this.$route.params.id)
+      }
   },
+
+  computed: {
+    ...mapGetters (["getTodoById"]),  
+  },
+
   methods:{
-  
-
+    ...mapActions (["updateTd"]),  
+    update () {
+      this.updateTd ({todo: this.todo, id: this.todo.id}) 
+  },
   }
 }
+
+
 </script>
 
 

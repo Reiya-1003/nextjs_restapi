@@ -20,9 +20,9 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Home',
 
-     methods:{
-     ...mapActions(['login','userName'])
-   }
+methods:{
+...mapActions(['login','userName'])
+}
 
 }
 </script>
