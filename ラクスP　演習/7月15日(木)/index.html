@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7/15研修</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+
+   <div id="app">
+      <h2>Todos:</h2>
+        <ol>
+            <!-- 繰り返したいものに対して　vーforを記載する -->
+            <!-- 配列の中身を一個一向受け取るための変数　in配列　todo in todos -->
+            <li v-for="todo in todos">
+                <label>
+                    <input type="checkbox" v-on:change="toggle(todo)" v-bind:checked="todo.done">
+                     <del v-if="todo.done">　　 <!--delタグ新登場　線入った文字-->
+                        {{ todo.text }}
+                    </del>
+                    <span v-else>
+                        {{ todo.text }}
+                    </span>
+                </label>
+            </li>
+            <!-- ここまでがli作るリストの範囲 -->
+        </ol> 
+
+
+
+         <a v-bind:href="url">Google</a>      <!--p14--> 
+       <div v-bind:class={red:isActive}>{{message}}</div> 
+       <p v-bind:title="message">hello</p>
+       <div v-bind:class="[active,error]">Red&Yellow</div>
+
+
+       <button v-on:click="myClick">click</button>                    <!--p16-->
+       <button v-on:dblclick="myDblClick">double click</button>
+       <input v-on:change="myChange">
+       <div>{{ message2 }}</div>
+       <form v-on:submit = "mySubmit"><input type="submit"/></form>
+       <a href="javascript:alert('href action')"
+       v-on:click.prevent="myClick">prevent設定</a>
+
+
+       <button :disabled='button_disable'>{{button_label}}</button>  <!--p18-->
+       <button @click="log">ボタん</button>
+       
+
+    <div>
+        <label>
+        <input type="checkbox" v-model="reserve">登録</input>
+        </label>
+    </div>
+    <div v-show="reserve">登録日<input type="date"></div>
+   
+   <div v-if="reserve">
+       登録日<input type="date">
+   </div>
+
+
+   <button v-on:click="click" v-on:>ボタン</button>
+   <div v-show="mozi">vーshowの文字です</div>
+   <div v-if="mozi">v-moziの文字です</div>
+    
+
+　 <div v-if="kotoba">{{kotoba}}</div>
+  <div v-else-if="kotoba == ''">メッセージが空です</div>
+  <div v-else>メッセージがありません</div>
+
+  <input v-on:change="myChange2">
+  <div v-if="mozi == 'ラクス'">エンジニア最高</div>
+  <div v-else-if="mozi == 'ラクスパートナーズ'">エンジニア最高</div>
+  <div v-else-if="mozi">{{mozi}}</div>
+  <div v-else>メッセージがありません</div>
+  
+</div>
+   <script src="script.js"></script>
+</body>
+</html>

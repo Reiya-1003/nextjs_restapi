@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楽天 vue</title>
+</head>
+<body>
+    <div id="app">
+        <h2>楽天API</h2>
+        <div>
+        検索<input v-model="keyword">
+        <button v-on:click="Kensaku()">検索</button>
+        </div>
+      
+      
+          <ol v-for="item in items" :key="">
+            <li>{{item.Item.itemName}}</li>
+            <li>{{item.Item.shopUrl}}</li>
+            <li><a v-bind:href="`${item.Item.itemUrl}`">{{item.Item.itemUrl}}</a></li>
+            </ol>
+          
+          
+          
+      
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.19/lodash.min.js"></script>
+    <script src="level1.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習問題</title>
+</head>
+<body>
+    <h1>ECサイト会員登録フォーム</h1>
+　　　
+    <form action=”http://example.com” method=”データ送信方法”>
+    <div><label for="name">名前：</label>
+        <input type="text" name="name" id="name">
+    </div>
+
+    <div><label for="addres">メールアドレス：</label>
+        <input type="text" name="addres" id="addres">
+    </div>
+    
+    <div>
+        性別：<input type="radio" id="men" name="gender" value="male" checked>
+        <label for="men">男性</label>
+        <input type="radio" id="women" name="gender" value="female">
+        <label for="women">女性</label>
+    　  
+    　</div>
+
+    <div>
+        <label for="old">年齢</label>
+        ：<select id="old" name="old">
+        　<option value="teens">10代</option>
+        　<option value="twenties">20代</option>
+          <option value="thirties">30代</option>
+          <option value="forties">40代</option>
+          <option value="fifties">50代</option>
+        　 </select>
+    </div>
+
+    <div>
+        <button type=”submit”>送信</button>
+        <button type=”reset”>リセット</button>
+    </div>
+    </form>
+</body>
+</html>

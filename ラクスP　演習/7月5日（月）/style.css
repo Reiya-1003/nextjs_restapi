@@ -1,0 +1,41 @@
+.mozi{
+    color: red;
+    }
+    
+ span.mozi{
+        color:red;
+    }
+    
+
+p.mozi::first-letter{
+        color:red;
+    }
+    
+div.example::first-line {
+        color: #ff0000;
+    }
+    
+
+div.example2::after {
+        content: "要素の直後にコンテンツを追加";
+        color:#ff0000;
+}
+
+
+a:hover {
+    color: #ff0000;
+}
+
+.sample-spec{
+    color: #ff0000;
+}
+.sample-spec{
+    color: #4400ff;
+}
+
+.container {
+    display: flex;
+}
+    
+
+    

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実験用</title>
+</head>
+<body>
+    <div id="app">
+        <button v-if="display" v-on:click="changeButton">A</button>
+        <button v-else v-on:click="changeButton">B</button>
+        <button v-if="display" v-on:click="display = !display">作業中</button>
+        　　　　<button v-else v-on:click="display = !display">完了</button>
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="otamesi.js"></script>
+</body>
+</html>
