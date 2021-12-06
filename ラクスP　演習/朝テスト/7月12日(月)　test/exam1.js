@@ -1,1 +1,0 @@
-console.log("江上　怜弥")
